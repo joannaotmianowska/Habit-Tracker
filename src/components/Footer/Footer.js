@@ -3,7 +3,13 @@ import React, { Component } from 'react';
 class Footer extends Component {
   render() {
     return (
-        <h1>This is footer</h1>
+      <div className="footer">
+        <span>
+          Contact us
+          <br></br>
+          office@habittracker.com
+        </span>
+      </div>
     );
   }
 }

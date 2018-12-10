@@ -1,0 +1,18 @@
+@import "../../consts.scss";
+
+.footer {
+    background-color: $footerBackgroundColor;
+    font-family: $mainFont;
+    color: $textColor;
+    font-size: 22px;
+    font-weight: 300;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 5% auto 5%;
+    align-items: center;
+    text-align: center;
+
+    span {
+        grid-column: 2;
+    }
+}

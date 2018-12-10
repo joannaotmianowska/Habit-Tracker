@@ -1,3 +1,28 @@
-.logo {
-    margin-top: 20px;
+@import "../../consts.scss";
+
+.header {
+    display: grid;
+    grid-template-columns: 5% 30% auto 15% 5%;
+    height: 80px;
+    align-items: center;
+}
+
+.logo-container {
+    grid-column: 2;
+
+    img {
+        height: 50px;
+    }
+}
+
+.login-btn {
+    border: 2px solid $black;
+    border-radius: 5px;
+    grid-column: 4;
+    color: $black;
+    font-family: $mainFont;
+    font-size: 18px;
+    // font-weight: 600;
+    height: 50px;
+    align-self: center;
 }

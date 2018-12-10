@@ -4,8 +4,11 @@ import logo from '../../images/HT_logo.png';
 class Header extends Component {
   render() {
     return (
-        <header className="App-header">
-            <img src={logo} className="logo" alt="logo" />
+        <header className="header">
+            <div className="logo-container">
+              <img src={ logo } className="logo" alt="logo" />
+            </div>
+            <button className="login-btn">Log in</button>
         </header>
     );
   }
