@@ -5,7 +5,7 @@ class Footer extends Component {
   render() {
     return (
       <div className={styles.footer}>
-        <span className={styles.column}>
+        <span>
           Contact us
           <br></br>
           office@habittracker.com
