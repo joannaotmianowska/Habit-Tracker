@@ -1,28 +1,56 @@
 import React, { Component } from 'react';
-import firstImage from '../../images/undraw_High_five_u364.svg';
-
 import styles from './WelcomePage.module.scss';
+import WelcomeSectionComponent from './WelcomeSection';
+import entrySectionImage from '../../images/undraw_High_five.svg';
+import processSectionImage from '../../images/habit_loop.png';
+import writingSectionImage from '../../images/undraw_to_do_list.svg';
+import prioritySectionImage from '../../images/undraw_country_side.svg';
+import {
+  entrySectionHeader,
+  entrySectionText,
+  processSectionHeader,
+  processSectionText,
+  writingSectionHeader,
+  writingSectionText,
+  prioritySectionHeader,
+  prioritySectionText
+} from './SectionsDetails';
 
 class WelcomePage extends Component {
   render() {
     return (
-      <div className={styles.section}>
-        <div className={styles.row}>
-            <div className={styles.details}>
-              <h4>Build Habits That Stick</h4>
-              <p>
-                Habit Tracker helps you learn the most effective process, <br></br>
-                increase self-awareness and set priorities <br></br>
-                so achieving your goals is easier than ever.
-              </p>
-              <div className={styles.loginSection}>
-                <button className="fb-login">Login with Facebook</button>
-                <button className="gh-login">Login with GitHub</button>
-              </div>
-            </div>
-            <div className={styles.imageSection}>
-              <img src= { firstImage }/>
-            </div>
+      <div>
+        <div className={ styles.grayBackground }>
+          <WelcomeSectionComponent
+            header={ entrySectionHeader }
+            text={ entrySectionText }
+            image={ entrySectionImage }
+            textPlacement="left"
+          />
+        </div>
+        <div className={ styles.violetBackground }>
+          <WelcomeSectionComponent
+            header={ processSectionHeader }
+            text={ processSectionText }
+            image={ processSectionImage }
+            textPlacement="right"
+          />
+        </div>
+        <div className={ styles.whiteBackground }>
+          <WelcomeSectionComponent
+            header={ writingSectionHeader }
+            text={ writingSectionText }
+            image={ writingSectionImage }
+            textPlacement="left"
+          />
+        </div>
+        <div className={ styles.grayBackground }>
+          <WelcomeSectionComponent
+            header={ prioritySectionHeader }
+            text={ prioritySectionText }
+            image={ prioritySectionImage }
+            textPlacement="right"
+          />
         </div>
       </div>
     );

@@ -1,0 +1,64 @@
+@import "../../scss/constants";
+
+.section {
+    height: 650px;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 5% auto 5%;
+}
+
+.row {
+    height: 500px;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 45% 10% 45%;
+    align-items: center;
+
+    .details {
+        align-self: start;
+
+        h4 {
+            color: $headersTextColor;
+            font-size: 56px;
+            font-family: $mainFont;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+        p {
+            margin: 30px 0;
+            color: $textColor;
+            font-family: $secondFont;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+    }
+
+    .imageSection {
+        img {
+            height: 400px;
+            width: 100%;
+        }
+    }
+}
+
+
+.left {
+    .details {
+        grid-column: 1;
+    }
+
+    .imageSection {
+        grid-column: 3;
+    }
+}
+
+.right {
+    .details {
+        grid-column: 3;
+    }
+
+    .imageSection {
+        grid-column: 1;
+    }
+}
