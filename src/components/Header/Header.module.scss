@@ -3,7 +3,8 @@
 .header {
     display: grid;
     grid-template-columns: 5% 30% auto 15% 5%;
-    height: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     align-items: center;
 }
 
@@ -22,7 +23,10 @@
     color: $black;
     font-family: $mainFont;
     font-size: 18px;
-    // font-weight: 600;
-    height: 50px;
+    padding: 5px 10px;
     align-self: center;
+
+    @media (max-width: $mobileBreakpoint) {
+        font-size: 14px;
+    }
 }

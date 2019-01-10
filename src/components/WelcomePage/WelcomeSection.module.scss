@@ -1,18 +1,29 @@
 @import "../../scss/constants";
 
 .section {
-    height: 650px;
     align-items: center;
     display: grid;
     grid-template-columns: 5% auto 5%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    @media (max-width: $mobileBreakpoint) {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 }
 
 .row {
-    height: 500px;
     grid-column: 2;
     display: grid;
     grid-template-columns: 45% 10% 45%;
     align-items: center;
+
+
+    @media (max-width: $mobileBreakpoint) {
+        display: flex;
+        flex-direction: column;
+    }
 
     .details {
         align-self: start;
@@ -23,6 +34,11 @@
             font-family: $mainFont;
             font-weight: 400;
             margin-bottom: 0;
+
+            @media (max-width: $mobileBreakpoint) {
+                font-size: 28px;
+                margin-top: 20px;
+            }
         }
 
         p {
@@ -31,12 +47,15 @@
             font-family: $secondFont;
             font-size: 20px;
             line-height: 1.5;
+
+            @media (max-width: $mobileBreakpoint) {
+                font-size: 16px;
+            }
         }
     }
 
     .imageSection {
         img {
-            height: 400px;
             width: 100%;
         }
     }
