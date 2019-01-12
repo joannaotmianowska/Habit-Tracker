@@ -1,0 +1,83 @@
+@import "../../../scss/constants";
+
+.section {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 5% auto 5%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    @media (max-width: $mobileBreakpoint) {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+.row {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 45% 10% 45%;
+    align-items: center;
+
+
+    @media (max-width: $mobileBreakpoint) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .details {
+        align-self: start;
+
+        h4 {
+            color: $headersTextColor;
+            font-size: 56px;
+            font-family: $mainFont;
+            font-weight: 400;
+            margin-bottom: 0;
+
+            @media (max-width: $mobileBreakpoint) {
+                font-size: 28px;
+                margin-top: 20px;
+            }
+        }
+
+        p {
+            margin: 30px 0;
+            color: $textColor;
+            font-family: $secondFont;
+            font-size: 20px;
+            line-height: 1.5;
+
+            @media (max-width: $mobileBreakpoint) {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .imageSection {
+        img {
+            width: 100%;
+        }
+    }
+}
+
+
+.left {
+    .details {
+        grid-column: 1;
+    }
+
+    .imageSection {
+        grid-column: 3;
+    }
+}
+
+.right {
+    .details {
+        grid-column: 3;
+    }
+
+    .imageSection {
+        grid-column: 1;
+    }
+}

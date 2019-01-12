@@ -1,57 +1,13 @@
-@import "../../scss/contants";
+@import "../../scss/constants";
 
-.section {
-    display: grid;
-    grid-template-columns: 5% auto 5%;
-    background-color: $firstWelcomeSectionBackgroundColor;
+.grayBackground {
+    background-color: $grayBackgroundColor;
 }
 
-.row {
-    height: 500px;
-    grid-column: 2;
-    display: grid;
-    grid-template-columns: 45% 10% 45%;
-    align-items: center;
-
-
+.violetBackground {
+    background-color: $violetBackgroundColor;
 }
 
-.details {
-    grid-column: 1;
-    align-self: start;
-
-    h4 {
-        color: $headersTextColor;
-        font-size: 56px;
-        font-family: $mainFont;
-        font-weight: 400;
-        margin-bottom: 0;
-    }
-
-    p {
-        margin: 30px 0;
-        color: $textColor;
-        font-family: $secondFont;
-        font-size: 20px;
-        line-height: 1.5;
-    }
+.whiteBackground {
+    background-color: $whiteBackgroundColor;
 }
-
-.loginSection {
-    background-color: $white;
-    height: 150px;
-    width: 150px;
-    border-radius: 10px;
-}
-
-
-.imageSection {
-    grid-column: 3;
-
-    img {
-        height: 400px;
-    }
-}
-
-
-

@@ -7,7 +7,7 @@ class Footer extends Component {
       <div className={styles.footer}>
         <span>
           Contact us
-          <br></br>
+          <br />
           office@habittracker.com
         </span>
       </div>

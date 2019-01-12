@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="container"
+  >
+    <img
+      alt="logo"
+      className="image"
+      src="HT_logo.png"
+    />
+  </div>
+  <button
+    className="button"
+  >
+    Log in
+  </button>
+</header>
+`;
