@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="section"
+>
+  <div
+    className="row left"
+  >
+    <div
+      className="details"
+    >
+      <h4>
+        test header
+      </h4>
+      <p>
+        test text
+      </p>
+    </div>
+    <div
+      className="imageSection"
+    >
+      <img
+        alt="test header"
+        src="testImageUrl"
+      />
+    </div>
+  </div>
+</div>
+`;

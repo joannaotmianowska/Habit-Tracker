@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Header from './Header';
+import WelcomePage from './WelcomePage';
 
 test('renders correctly', () => {
   const tree = renderer
-    .create(<Header />)
+    .create(<WelcomePage />)
     .toJSON();
 
   expect(tree).toMatchSnapshot();
