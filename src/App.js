@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import WelcomePage from './components/WelcomePage/WelcomePage';
 import NotFound from './components/NotFound/NotFound';
 import Footer from './components/Footer/Footer';
+import LoginPage from './components/LoginPage/LoginPage';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={WelcomePage}/>
+            <Route exact path="/login" component={LoginPage}/>
             <Route exact path="/dashboard/:dashboardId" component={Dashboard}/>
             <Route component={NotFound}/>
           </Switch>

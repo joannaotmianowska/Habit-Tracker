@@ -8,9 +8,11 @@ class Header extends Component {
     return (
       <header className={styles.header}>
         <div className={styles.container}>
-          <img src={logo} className={styles.image} alt="logo" />
+          <a href="/">
+            <img src={logo} className={styles.image} alt="logo" />
+          </a>
         </div>
-        <button className={styles.button}>Log in</button>
+        <a href="/login" className={styles.button}>Log in</a>
       </header>
     );
   }
