@@ -13,5 +13,17 @@
         height: 50px;
         width: 400px;
         margin-top: 30px;
+        font-size: 18px;
+        color: $white;
+        border-radius: 5px;
+        cursor: pointer;
     }
+}
+
+.facebook {
+    background-color: #3B5998;
+}
+
+.github {
+    background-color: #28a745;
 }

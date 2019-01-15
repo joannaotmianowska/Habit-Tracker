@@ -12,7 +12,7 @@ class Header extends Component {
             <img src={logo} className={styles.image} alt="logo" />
           </a>
         </div>
-        <a href="/login" className={styles.button}>Log in</a>
+        <a href="/dashboard/123" className={styles.button}>Log in</a>
       </header>
     );
   }
