@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="login"
+>
+  <button
+    className="facebook"
+  >
+    Log in with Facebook
+  </button>
+  <button
+    className="github"
+  >
+    Log in with GitHub
+  </button>
+</div>
+`;

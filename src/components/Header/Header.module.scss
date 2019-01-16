@@ -25,6 +25,8 @@
     font-size: 18px;
     padding: 5px 10px;
     align-self: center;
+    text-decoration: none;
+    text-align: center;
 
     @media (max-width: $mobileBreakpoint) {
         font-size: 14px;
