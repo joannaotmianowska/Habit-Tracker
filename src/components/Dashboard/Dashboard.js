@@ -2,8 +2,20 @@ import React, { Component } from 'react';
 import LoginPage from '../LoginPage/LoginPage';
 import { firebaseApp } from '../../base';
 import firebase from 'firebase';
+import HabitsList from './HabitsList/HabitsList';
 
 class Dashboard extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      habits: {}
+    }
+  }
+
+  componentDidUpdate() {
+    
+  }
 
   authHandler = async (authData) => {
     // TO DO - when dashboard is ready
@@ -20,14 +32,25 @@ class Dashboard extends Component {
       .signInWithPopup(authProvider).then(this.authHandler);
   };
 
+  addHabit = habit => {
+    const habits = { ...this.state.habits };
+    habits[`habit${Date.now()}`] = habit;
+    this.setState({ habits });
+  }
+
   render() {
 
-    return <LoginPage authenticate={ this.authenticate }/>
+    // return <LoginPage authenticate={ this.authenticate }/>
     // TO DO - when user is logged in - show dashboard
     // if not - show login page
-    // return (
-    //   <h1>This is Dashboard</h1>
-    // );
+    return (
+      <div>
+        <HabitsList
+          addHabit={ this.addHabit }
+          habits={ this.state.habits }
+        />
+      </div>
+    );
   }
 }
 
