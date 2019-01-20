@@ -14,7 +14,7 @@ class Dashboard extends Component {
   }
 
   componentDidUpdate() {
-    
+
   }
 
   authHandler = async (authData) => {
