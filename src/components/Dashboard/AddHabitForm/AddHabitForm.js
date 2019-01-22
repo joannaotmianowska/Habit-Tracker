@@ -15,7 +15,9 @@ class AddHabitForm extends Component {
         const habit = {
             name: this.nameRef.current.value,
             startingDate: this.dateRef.current.value,
-            duration: this.durationRef.current.value
+            duration: parseInt(this.durationRef.current.value),
+            completed: false,
+            progress: 0
         }
 
         this.props.addHabit(habit);

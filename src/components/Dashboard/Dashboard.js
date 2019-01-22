@@ -14,7 +14,8 @@ class Dashboard extends Component {
   }
 
   componentDidUpdate() {
-
+    console.log(this.state.habits);
+    Object.keys(this.state.habits).map(key => this.checkIfCompleted(key));
   }
 
   authHandler = async (authData) => {
@@ -38,6 +39,31 @@ class Dashboard extends Component {
     this.setState({ habits });
   }
 
+  updateHabit = (key, updatedHabit) => {
+    const habits = { ...this.state.habits };
+    habits[key] = updatedHabit;
+    this.setState({ habits });
+}
+
+  checkIfCompleted = key => {
+    const habitToUpdate = this.state.habits[key];
+
+    if (this.state.habits[key].progress === this.state.habits[key].duration) {
+      console.log('habit completed');
+      habitToUpdate.completed = true;
+    } else {
+      habitToUpdate.completed = false;
+    }
+  }
+
+  changeHabitProgress = (key, direction) => {
+    const habitToUpdate = this.state.habits[key];
+
+    direction === "up" ? habitToUpdate.progress++ : habitToUpdate.progress--;
+
+    this.updateHabit(key, habitToUpdate);
+  }
+
   render() {
 
     // return <LoginPage authenticate={ this.authenticate }/>
@@ -47,6 +73,7 @@ class Dashboard extends Component {
       <div>
         <HabitsList
           addHabit={ this.addHabit }
+          changeHabitProgress={ this.changeHabitProgress }
           habits={ this.state.habits }
         />
       </div>
