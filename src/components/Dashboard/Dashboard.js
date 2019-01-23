@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LoginPage from '../LoginPage/LoginPage';
-import { firebaseApp } from '../../base';
+import base, { firebaseApp } from '../../base';
 import firebase from 'firebase';
 import HabitsList from './HabitsList/HabitsList';
 
@@ -13,8 +13,16 @@ class Dashboard extends Component {
     }
   }
 
+  componentDidMount() {
+    const { params } = this.props.match;
+
+    this.ref = base.syncState(`${params.dashboardId}/habits`, {
+      context: this,
+      state: 'habits'
+    });
+  }
+
   componentDidUpdate() {
-    console.log(this.state.habits);
     Object.keys(this.state.habits).map(key => this.checkIfCompleted(key));
   }
 
@@ -46,6 +54,7 @@ class Dashboard extends Component {
 }
 
   checkIfCompleted = key => {
+    // TO DO - mark habit as completed
     const habitToUpdate = this.state.habits[key];
 
     if (this.state.habits[key].progress === this.state.habits[key].duration) {

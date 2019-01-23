@@ -14,7 +14,7 @@ class SingleDay extends Component {
 
     toggleMarked() {
         const changedMarkedInState = !this.state.marked;
-        
+
         this.props.changeProgress(changedMarkedInState === true ? "up" : "down");
         this.setState({ marked: changedMarkedInState });
     }
