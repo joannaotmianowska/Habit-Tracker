@@ -4,36 +4,18 @@ import SingleDay from './SingleDay/SingleDay';
 
 class SingleHabit extends Component {
 
-    constructor(props) {
-        super(props);
-
-        this.changeProgress = this.changeProgress.bind(this);
-    }
-
-    daysArrayForHabit(days) {
-        let array = [];
-
-        for(let i = 1; i <= days; i++) {
-            array.push(i);
-        }
-
-        return array;
-    }
-
-    changeProgress(direction) {
-        this.props.changeHabitProgress(this.props.index, direction);
-    }
-
     render() {
-        console.log('completed', this.props.habitDetails.completed)
         return (
             <div>
                 <h5>Habit: { this.props.habitDetails.name }</h5>
                 <div className={ styles.daysArea }>
-                    { this.daysArrayForHabit(this.props.habitDetails.duration).map(el =>
+                    { this.props.habitDetails.days.map(el =>
                         <SingleDay
-                            key={ el }
-                            changeProgress={ this.changeProgress }/>
+                            key={ el.dayNo }
+                            habitKey={ this.props.index }
+                            toggleDayAsMarked={ this.props.toggleDayAsMarked }
+                            { ...el }
+                        />
                     )}
                 </div>
                 <h6 className={ this.props.habitDetails.completed ? styles.shown : styles.hidden  }>Completed!</h6>

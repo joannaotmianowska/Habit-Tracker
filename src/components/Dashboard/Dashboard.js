@@ -22,10 +22,6 @@ class Dashboard extends Component {
     });
   }
 
-  componentDidUpdate() {
-    Object.keys(this.state.habits).map(key => this.checkIfCompleted(key));
-  }
-
   authHandler = async (authData) => {
     // TO DO - when dashboard is ready
     // 1. Look up current dashboard in database
@@ -47,30 +43,31 @@ class Dashboard extends Component {
     this.setState({ habits });
   }
 
-  updateHabit = (key, updatedHabit) => {
+  updateHabit = (habitKey, updatedHabit) => {
     const habits = { ...this.state.habits };
-    habits[key] = updatedHabit;
+    habits[habitKey] = updatedHabit;
     this.setState({ habits });
 }
 
-  checkIfCompleted = key => {
-    // TO DO - mark habit as completed
-    const habitToUpdate = this.state.habits[key];
+  toggleDayAsMarked = (habitKey, dayNo) => {
+    const habitToUpdate = this.state.habits[habitKey];
 
-    if (this.state.habits[key].progress === this.state.habits[key].duration) {
-      console.log('habit completed');
-      habitToUpdate.completed = true;
-    } else {
-      habitToUpdate.completed = false;
-    }
-  }
+    habitToUpdate.days.map(day => {
+      if (day.dayNo === dayNo) {
+        day.marked = !day.marked;
 
-  changeHabitProgress = (key, direction) => {
-    const habitToUpdate = this.state.habits[key];
+        day.marked === true
+          ? habitToUpdate.progress++
+          : habitToUpdate.progress--;
 
-    direction === "up" ? habitToUpdate.progress++ : habitToUpdate.progress--;
+        habitToUpdate.progress === habitToUpdate.duration
+          ? habitToUpdate.completed = true
+          : habitToUpdate.completed = false;
 
-    this.updateHabit(key, habitToUpdate);
+        this.updateHabit(habitKey, habitToUpdate);
+      }
+    });
+
   }
 
   render() {
@@ -82,8 +79,8 @@ class Dashboard extends Component {
       <div>
         <HabitsList
           addHabit={ this.addHabit }
-          changeHabitProgress={ this.changeHabitProgress }
           habits={ this.state.habits }
+          toggleDayAsMarked={ this.toggleDayAsMarked }
         />
       </div>
     );

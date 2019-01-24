@@ -15,7 +15,7 @@ class HabitsList extends Component {
                         key={ key }
                         habitDetails={ this.props.habits[key] }
                         index={ key }
-                        changeHabitProgress={ this.props.changeHabitProgress }
+                        toggleDayAsMarked={ this.props.toggleDayAsMarked }
                     />
                 ) }
             </div>

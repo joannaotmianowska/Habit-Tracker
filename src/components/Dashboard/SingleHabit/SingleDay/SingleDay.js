@@ -13,15 +13,12 @@ class SingleDay extends Component {
     }
 
     toggleMarked() {
-        const changedMarkedInState = !this.state.marked;
-
-        this.props.changeProgress(changedMarkedInState === true ? "up" : "down");
-        this.setState({ marked: changedMarkedInState });
+        this.props.toggleDayAsMarked(this.props.habitKey, this.props.dayNo);
     }
 
     render() {
         return <div
-            className={ `${ styles.day } ${ this.state.marked ? styles.marked : styles.notMarked }` }
+            className={ `${ styles.day } ${ this.props.marked ? styles.marked : styles.notMarked }` }
             onClick={ this.toggleMarked }
         />
 

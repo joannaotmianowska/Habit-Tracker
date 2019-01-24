@@ -7,17 +7,31 @@ class AddHabitForm extends Component {
         this.dateRef = React.createRef();
         this.durationRef = React.createRef();
         this.createHabit = this.createHabit.bind(this);
+        this.daysArrayForHabit = this.daysArrayForHabit.bind(this);
+    }
+
+    daysArrayForHabit(days) {
+        let array = [];
+
+        for(let i = 1; i <= days; i++) {
+            array.push({ dayNo: i, marked: false });
+        }
+
+        return array;
     }
 
     createHabit(e) {
         e.preventDefault();
 
+        const duration = parseInt(this.durationRef.current.value);
+
         const habit = {
             name: this.nameRef.current.value,
             startingDate: this.dateRef.current.value,
-            duration: parseInt(this.durationRef.current.value),
+            duration,
             completed: false,
-            progress: 0
+            progress: 0,
+            days: this.daysArrayForHabit(duration)
         }
 
         this.props.addHabit(habit);
