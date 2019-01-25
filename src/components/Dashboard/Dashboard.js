@@ -61,11 +61,14 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <HabitsList
-          addHabit={ this.addHabit }
-          habits={ this.state.habits }
-          toggleDayAsMarked={ this.toggleDayAsMarked }
-        />
+        {this.props.userId === this.props.owner && this.props.logged
+          ? <HabitsList
+            addHabit={ this.addHabit }
+            habits={ this.state.habits }
+            toggleDayAsMarked={ this.toggleDayAsMarked }
+          />
+          : <div>Log in to see the dashboard</div>
+      }
       </div>
     );
   }

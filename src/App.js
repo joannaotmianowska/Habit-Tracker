@@ -15,7 +15,8 @@ class App extends Component {
 
     this.state = {
       logged: false,
-      userId: null
+      userId: null,
+      owner: null
     }
   }
 
@@ -31,7 +32,8 @@ class App extends Component {
 
     this.setState({
       logged: true,
-      userId
+      userId,
+      owner: dashboard.owner || userId
     });
   };
 
@@ -43,11 +45,20 @@ class App extends Component {
       .then(this.authHandler);
   };
 
+  logout = async () => {
+    await firebase.auth().signOut();
+
+    this.setState({
+      logged: false,
+      userId: null
+    });
+  }
+
   render() {
 
     return (
       <div className="App">
-        <Header logged={this.state.logged} />
+        <Header logged={this.state.logged} logout={this.logout}/>
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={WelcomePage}/>
@@ -56,11 +67,11 @@ class App extends Component {
               path="/dashboard"
               render={() =>
                 this.state.logged && this.state.userId
-                  ? (<Redirect to={`/dashboard/${this.state.userId}`}/>)
+                  ? this.state.owner === this.state.userId && (<Redirect to={`/dashboard/${this.state.userId}`}/>)
                   : (<LoginPage authenticate={this.authenticate} />)}
             />
             <Route exact path="/dashboard/:dashboardId" render={(props) =>
-              (<Dashboard {...props} />)}/>
+              (<Dashboard {...props} {...this.state}/>)}/>
             <Route component={NotFound}/>
           </Switch>
         </BrowserRouter>
