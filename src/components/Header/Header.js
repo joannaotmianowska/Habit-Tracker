@@ -12,7 +12,10 @@ class Header extends Component {
             <img src={logo} className={styles.image} alt="logo" />
           </a>
         </div>
-        <a href="/dashboard/123" className={styles.button}>Log in</a>
+        { !this.props.logged
+          ? <a href="/dashboard" className={styles.button}>Log in</a>
+          : <a href="/" onClick={this.props.logout} className={styles.button}>Log out</a>
+         }
       </header>
     );
   }

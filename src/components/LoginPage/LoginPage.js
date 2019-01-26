@@ -14,7 +14,7 @@ class LoginPage extends Component {
         </button>
         <button
           className={styles.github}
-          onClick={() => { this.props.authenticate('GitHub')}}
+          onClick={() => { this.props.authenticate('Github')}}
         >
             Log in with GitHub
         </button>

@@ -1,0 +1,16 @@
+.day {
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    margin-right: 10px;
+    border: 2px solid #9392E0;
+    cursor: pointer;
+}
+
+.marked {
+    background-color: #9392E0;
+}
+
+.notMarked {
+    background-color: none;
+}
