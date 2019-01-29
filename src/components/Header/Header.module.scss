@@ -8,12 +8,16 @@
     align-items: center;
 }
 
-.container {
+.logoContainer {
     grid-column: 2;
 }
 
 .image {
     height: 50px;
+}
+
+.loginIn {
+    width: 100%;
 }
 
 .button {
@@ -23,7 +27,7 @@
     color: $black;
     font-family: $mainFont;
     font-size: 18px;
-    padding: 5px 10px;
+    padding: 5px 15px;
     align-self: center;
     text-decoration: none;
     text-align: center;
@@ -31,4 +35,10 @@
     @media (max-width: $mobileBreakpoint) {
         font-size: 14px;
     }
+}
+
+.loggedUserSection {
+    grid-column: 4;
+    display: flex;
+    justify-content: space-between;
 }

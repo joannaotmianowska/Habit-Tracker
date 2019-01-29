@@ -4,12 +4,16 @@ import SingleDay from './SingleDay/SingleDay';
 
 class SingleHabit extends Component {
 
+
     render() {
+        const { name, duration, progress, days, completed } = this.props.habitDetails;
+        
         return (
             <div>
-                <h5>Habit: { this.props.habitDetails.name }</h5>
+                <h5>Habit: { name }</h5>
+                <div className={ styles.progressArea }>{ progress }/{ duration }</div>
                 <div className={ styles.daysArea }>
-                    { this.props.habitDetails.days.map(el =>
+                    { days.map(el =>
                         <SingleDay
                             key={ el.dayNo }
                             habitKey={ this.props.index }
@@ -18,7 +22,7 @@ class SingleHabit extends Component {
                         />
                     )}
                 </div>
-                <h6 className={ this.props.habitDetails.completed ? styles.shown : styles.hidden  }>Completed!</h6>
+                <h6 className={ completed ? styles.shown : styles.hidden  }>Completed!</h6>
             </div>
         )
     }

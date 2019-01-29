@@ -20,6 +20,14 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.authHandler({ user });
+      }
+    });
+  }
+
   authHandler = async (authData) => {
     const userId = authData.user.uid;
     const dashboard = await base.fetch(userId, { context: this });
@@ -58,7 +66,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header logged={this.state.logged} logout={this.logout}/>
+        <Header logged={this.state.logged} logout={this.logout} userId={this.state.userId}/>
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={WelcomePage}/>
