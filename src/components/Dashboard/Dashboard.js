@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import base from '../../base';
 import HabitsList from './HabitsList/HabitsList';
+import Modal from '../Modals/Modal';
 
 class Dashboard extends Component {
 
@@ -8,8 +9,12 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       habits: {},
-      owner: this.props.userId
+      owner: this.props.userId,
+      showModal: false
     }
+
+    this.showModal = this.showModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   componentDidMount() {
@@ -24,6 +29,14 @@ class Dashboard extends Component {
 
   componentWillUnmount() {
     base.removeBinding(this.ref);
+  }
+
+  showModal() {
+    this.setState({ showModal: true });
+  }
+
+  closeModal() {
+    this.setState({ showModal: false });
   }
 
   addHabit = habit => {
@@ -61,7 +74,9 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        {this.props.userId === this.props.owner && this.props.logged
+        <button onClick={ this.showModal }>Show modal</button>
+        { this.state.showModal && <Modal closeModal={ this.closeModal } /> }
+        { this.props.userId === this.props.owner && this.props.logged
           ? <HabitsList
             addHabit={ this.addHabit }
             habits={ this.state.habits }
