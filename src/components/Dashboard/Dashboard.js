@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import base from '../../base';
 import HabitsList from './HabitsList/HabitsList';
 import Modal from '../Modals/Modal';
+import AddFormHabit from './AddHabitForm/AddHabitForm';
 
 class Dashboard extends Component {
 
@@ -80,8 +81,11 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        {/* <button onClick={ this.showModal }>Show modal</button> */}
-        { this.state.showModal && <Modal closeModal={ this.closeModal } /> }
+        <button onClick={ this.showModal }>Add new habit</button>
+        { this.state.showModal &&
+          <Modal>
+            <AddFormHabit addHabit={ this.addHabit } closeModal={ this.closeModal }/>
+          </Modal> }
         { this.props.userId === this.props.owner && this.props.logged
           ? <HabitsList
             addHabit={ this.addHabit }

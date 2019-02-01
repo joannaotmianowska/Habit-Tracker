@@ -1,6 +1,7 @@
+@import "../../scss/constants";
 
 .modal {
-    background-color: #279bc2;
+    background-color: $violetBackgroundColor;
     position: absolute;
     top: 100px;
     bottom: 0;
@@ -8,5 +9,5 @@
     left: 100px;
     height: 500px;
     width: 500px;
-    border: 1px solid red;
+    border-radius: 20px;
   }

@@ -21,8 +21,8 @@ class Modal extends Component {
 
     render() {
         return ReactDOM.createPortal(
-            <div className={styles.modal}>ABC ABC ABC
-            <button onClick={this.props.closeModal}>Close</button>
+            <div className={ styles.modal }>
+                { this.props.children }
             </div>,
             this.el
         )
