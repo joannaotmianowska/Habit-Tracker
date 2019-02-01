@@ -18,6 +18,7 @@ class HabitsList extends Component {
                             habitDetails={ this.props.habits[key] }
                             index={ key }
                             toggleDayAsMarked={ this.props.toggleDayAsMarked }
+                            deleteHabit={ this.props.deleteHabit }
                         />
                     ))
                 }

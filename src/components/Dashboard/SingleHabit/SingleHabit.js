@@ -4,10 +4,19 @@ import SingleDay from './SingleDay/SingleDay';
 
 class SingleHabit extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.delete = this.delete.bind(this);
+    }
+
+    delete() {
+        this.props.deleteHabit(this.props.index);
+    }
 
     render() {
         const { name, duration, progress, days, completed } = this.props.habitDetails;
-        
+
         return (
             <div>
                 <h5>Habit: { name }</h5>
@@ -22,6 +31,7 @@ class SingleHabit extends Component {
                         />
                     )}
                 </div>
+                <button onClick={ this.delete }>Delete</button>
                 <h6 className={ completed ? styles.shown : styles.hidden  }>Completed!</h6>
             </div>
         )

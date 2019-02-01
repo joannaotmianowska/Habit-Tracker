@@ -51,6 +51,12 @@ class Dashboard extends Component {
     this.setState({ habits });
 }
 
+  deleteHabit = habitKey => {
+    const habits = { ...this.state.habits };
+    habits[habitKey] = null;
+    this.setState({ habits });
+  }
+
   toggleDayAsMarked = (habitKey, dayNo) => {
     const habitToUpdate = this.state.habits[habitKey];
 
@@ -74,11 +80,12 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        <button onClick={ this.showModal }>Show modal</button>
+        {/* <button onClick={ this.showModal }>Show modal</button> */}
         { this.state.showModal && <Modal closeModal={ this.closeModal } /> }
         { this.props.userId === this.props.owner && this.props.logged
           ? <HabitsList
             addHabit={ this.addHabit }
+            deleteHabit={ this.deleteHabit }
             habits={ this.state.habits }
             toggleDayAsMarked={ this.toggleDayAsMarked }
           />
