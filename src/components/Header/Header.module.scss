@@ -32,6 +32,10 @@
     text-decoration: none;
     text-align: center;
 
+    &:hover {
+        font-weight: 700;
+    }
+
     @media (max-width: $mobileBreakpoint) {
         font-size: 14px;
     }
@@ -41,4 +45,15 @@
     grid-column: 4;
     display: flex;
     justify-content: space-between;
+}
+
+.ongoingHabits {
+    color: $violetThemeColor;
+    border: none;
+    font-size: 15px;
+}
+
+.logout {
+    font-size: 15px;
+    border: none;
 }

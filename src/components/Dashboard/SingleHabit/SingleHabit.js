@@ -18,7 +18,7 @@ class SingleHabit extends Component {
         const { name, duration, progress, days, completed } = this.props.habitDetails;
 
         return (
-            <div>
+            <div className={ styles.singleHabit }>
                 <h5>Habit: { name }</h5>
                 <div className={ styles.progressArea }>{ progress }/{ duration }</div>
                 <div className={ styles.daysArea }>

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import styles from './App.module.scss';
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import Header from './components/Header/Header';
 import Dashboard from './components/Dashboard/Dashboard';
 import WelcomePage from './components/WelcomePage/WelcomePage';
 import NotFound from './components/NotFound/NotFound';
-import Footer from './components/Footer/Footer';
 import LoginPage from './components/LoginPage/LoginPage';
 import firebase from 'firebase';
 import base, { firebaseApp } from './base';
@@ -65,7 +65,7 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App">
+      <div className={ styles.app }>
         <Header logged={this.state.logged} logout={this.logout} userId={this.state.userId}/>
         <BrowserRouter>
           <Switch>
@@ -83,7 +83,6 @@ class App extends Component {
             <Route component={NotFound}/>
           </Switch>
         </BrowserRouter>
-        <Footer />
       </div>
     );
   }

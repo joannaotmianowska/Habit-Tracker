@@ -1,5 +1,17 @@
 @import "../../../scss/constants";
 
+.singleHabit {
+    padding: 20px;
+    border: 1px solid $darkGreyThemeColor;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: $white;
+
+    h5 {
+        margin-top: 0;
+    }
+}
+
 .daysArea {
     display: flex;
 }

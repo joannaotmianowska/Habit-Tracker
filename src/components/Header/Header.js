@@ -7,10 +7,20 @@ class Header extends Component {
 
   renderLoggedUserSection() {
     return <React.Fragment>
-      <a href={ `/dashboard/${this.props.userId}` } className={ styles.button }>My Habits</a>
-      <a href="/" onClick={ this.props.logout } className={ styles.button }>Log out</a>
+      <a
+        href={ `/dashboard/${this.props.userId}` }
+        className={ `${styles.button} ${styles.ongoingHabits}` }>
+        Ongoing habits
+      </a>
+      <a
+        href="/"
+        onClick={ this.props.logout }
+        className={ `${styles.button} ${styles.logout}` }>
+        Log out
+      </a>
     </React.Fragment>
   }
+
   render() {
     return (
       <header className={ styles.header }>

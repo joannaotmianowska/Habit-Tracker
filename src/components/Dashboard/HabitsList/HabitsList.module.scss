@@ -1,7 +1,33 @@
 @import "../../../scss/constants";
 
-.list {
-    height: 600px;
-    padding: 40px;
+.dashboard {
+    display: grid;
+    grid-template-columns: 5% auto 5%;
     background-color: $grayBackgroundColor;
+}
+
+.list {
+    min-height: 100%;
+    grid-column: 2;
+}
+
+.listHeader {
+    padding-top: 50px;
+    grid-column: 2;
+    display: flex;
+    justify-content: space-between;
+    color: $darkGreyThemeColor;
+}
+
+.newHabit {
+    border: none;
+    background-color: $grayBackgroundColor;
+    font-size: 14px;
+    font-weight: 600;
+    color: $darkGreyThemeColor;
+    cursor: pointer;
+
+    &:hover {
+        font-weight: 750;
+    }
 }
