@@ -9,7 +9,7 @@ class Dashboard extends Component {
     this.state = {
       habits: {},
       owner: this.props.userId,
-      showModal: false
+      isModalShown: false
     }
 
     this.showModal = this.showModal.bind(this);
@@ -18,7 +18,6 @@ class Dashboard extends Component {
 
   componentDidMount() {
     const { params } = this.props.match;
-
 
     this.ref = base.syncState(`${params.dashboardId}/habits`, {
       context: this,
@@ -31,11 +30,11 @@ class Dashboard extends Component {
   }
 
   showModal() {
-    this.setState({ showModal: true });
+    this.setState({ isModalShown: true });
   }
 
   closeModal() {
-    this.setState({ showModal: false });
+    this.setState({ isModalShown: false });
   }
 
   addHabit = habit => {
@@ -86,7 +85,7 @@ class Dashboard extends Component {
             habits={ this.state.habits }
             toggleDayAsMarked={ this.toggleDayAsMarked }
             showModal={ this.showModal }
-            isModalShown={ this.state.showModal }
+            isModalShown={ this.state.isModalShown }
             closeModal={ this.closeModal }
           />
           : <div>Log in to see the dashboard</div>

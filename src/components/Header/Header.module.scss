@@ -2,7 +2,7 @@
 
 .header {
     display: grid;
-    grid-template-columns: 5% 30% auto 15% 5%;
+    grid-template-columns: 5% 30% auto 20% 5%;
     padding-top: 10px;
     padding-bottom: 10px;
     align-items: center;
@@ -37,23 +37,46 @@
     }
 
     @media (max-width: $mobileBreakpoint) {
-        font-size: 14px;
+        font-size: 11px;
     }
 }
 
 .loggedUserSection {
     grid-column: 4;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+
+    @media (max-width: $mobileBreakpoint) {
+        justify-content: flex-end;
+        height: 100%;
+    }
+}
+
+.loggedButton {
+    border: none;
+    font-size: 15px;
+    font-family: $mainFont;
+    text-decoration: none;
+    text-align: right;
+    color: $darkGreyThemeColor;
+    align-self: center;
+
+    &:hover {
+        font-weight: 700;
+    }
+
+    @media (max-width: $mobileBreakpoint) {
+        font-size: 12px;
+        font-weight: 600;
+    }
 }
 
 .ongoingHabits {
     color: $violetThemeColor;
-    border: none;
-    font-size: 15px;
-}
+    margin-right: 25px;
 
-.logout {
-    font-size: 15px;
-    border: none;
+    @media (max-width: $mobileBreakpoint) {
+        margin-right: 0;
+    }
 }

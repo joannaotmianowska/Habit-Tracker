@@ -9,13 +9,13 @@ class Header extends Component {
     return <React.Fragment>
       <a
         href={ `/dashboard/${this.props.userId}` }
-        className={ `${styles.button} ${styles.ongoingHabits}` }>
+        className={ `${styles.loggedButton} ${styles.ongoingHabits}` }>
         Ongoing habits
       </a>
       <a
         href="/"
         onClick={ this.props.logout }
-        className={ `${styles.button} ${styles.logout}` }>
+        className={ styles.loggedButton }>
         Log out
       </a>
     </React.Fragment>

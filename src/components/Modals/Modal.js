@@ -21,8 +21,10 @@ class Modal extends Component {
 
     render() {
         return ReactDOM.createPortal(
-            <div className={ styles.modal }>
-                { this.props.children }
+            <div className={ styles.modalContainer }>
+                <div className={ styles.modalArea }>
+                    { this.props.children }
+                </div>
             </div>,
             this.el
         )
