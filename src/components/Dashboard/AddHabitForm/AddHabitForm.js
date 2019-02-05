@@ -33,6 +33,7 @@ class AddHabitForm extends Component {
         }
 
         this.props.addHabit(habit);
+        this.props.closeNewHabitForm();
         e.currentTarget.reset();
     }
     render() {

@@ -23,7 +23,10 @@ class HabitsList extends Component {
                         <Modal
                             closeModal={ this.props.closeNewHabitForm }
                         >
-                            <AddFormHabit addHabit={ this.props.addHabit }/>
+                            <AddFormHabit 
+                                addHabit={ this.props.addHabit }
+                                closeNewHabitForm={ this.props.closeNewHabitForm }
+                            />
                         </Modal> }
                     { this.props.isSuccessModalShown &&
                         <Modal closeModal={ this.props.closeSuccessModal }>
