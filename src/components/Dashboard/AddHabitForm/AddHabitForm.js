@@ -32,7 +32,6 @@ class AddHabitForm extends Component {
             days: this.daysArrayForHabit(duration)
         }
 
-        this.props.closeModal();
         this.props.addHabit(habit);
         e.currentTarget.reset();
     }
@@ -43,7 +42,6 @@ class AddHabitForm extends Component {
                 <input name="name" ref={this.nameRef} type="text" placeholder="Habit name" required/>
                 <input name="duration" ref={this.durationRef} type="number" placeholder="Number of days" required/>
                 <button type="submit">Submit</button>
-                <div onClick={ this.props.closeModal }>X</div>
             </form>
         )
     }

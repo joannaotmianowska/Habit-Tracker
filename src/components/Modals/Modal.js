@@ -23,7 +23,15 @@ class Modal extends Component {
         return ReactDOM.createPortal(
             <div className={ styles.modalContainer }>
                 <div className={ styles.modalArea }>
-                    { this.props.children }
+                    <div className={ styles.modalDetails }>
+                        { this.props.children }
+                    </div>
+                    <div
+                        className={ styles.closeIcon }
+                        onClick={ this.props.closeModal }
+                    >
+                        X
+                    </div>
                 </div>
             </div>,
             this.el

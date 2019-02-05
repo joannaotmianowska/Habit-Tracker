@@ -9,11 +9,13 @@ class Dashboard extends Component {
     this.state = {
       habits: {},
       owner: this.props.userId,
-      isModalShown: false
+      isNewHabitFormShown: false,
+      isSuccessModalShown: false
     }
 
-    this.showModal = this.showModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    this.showNewHabitForm = this.showNewHabitForm.bind(this);
+    this.closeNewHabitForm = this.closeNewHabitForm.bind(this);
+    this.closeSuccessModal = this.closeSuccessModal.bind(this);
   }
 
   componentDidMount() {
@@ -29,12 +31,20 @@ class Dashboard extends Component {
     base.removeBinding(this.ref);
   }
 
-  showModal() {
-    this.setState({ isModalShown: true });
+  showNewHabitForm() {
+    this.setState({ isNewHabitFormShown: true });
   }
 
-  closeModal() {
-    this.setState({ isModalShown: false });
+  closeNewHabitForm() {
+    this.setState({ isNewHabitFormShown: false });
+  }
+
+  showSuccessModal() {
+    this.setState({ isSuccessModalShown: true });
+  }
+
+  closeSuccessModal() {
+    this.setState({ isSuccessModalShown: false });
   }
 
   addHabit = habit => {
@@ -66,9 +76,12 @@ class Dashboard extends Component {
           ? habitToUpdate.progress++
           : habitToUpdate.progress--;
 
-        habitToUpdate.progress === habitToUpdate.duration
-          ? habitToUpdate.completed = true
-          : habitToUpdate.completed = false;
+        if (habitToUpdate.progress === habitToUpdate.duration) {
+          habitToUpdate.completed = true;
+          this.showSuccessModal();
+        } else {
+          habitToUpdate.completed = false;
+        }
 
         this.updateHabit(habitKey, habitToUpdate);
       }
@@ -84,9 +97,12 @@ class Dashboard extends Component {
             deleteHabit={ this.deleteHabit }
             habits={ this.state.habits }
             toggleDayAsMarked={ this.toggleDayAsMarked }
-            showModal={ this.showModal }
-            isModalShown={ this.state.isModalShown }
-            closeModal={ this.closeModal }
+            showNewHabitForm={ this.showNewHabitForm }
+            isNewHabitFormShown={ this.state.isNewHabitFormShown }
+            closeNewHabitForm={ this.closeNewHabitForm }
+            updateHabit={ this.updateHabit }
+            isSuccessModalShown = { this.state.isSuccessModalShown }
+            closeSuccessModal = { this.closeSuccessModal }
           />
           : <div>Log in to see the dashboard</div>
         }

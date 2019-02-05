@@ -5,6 +5,7 @@
     grid-template-columns: 5% auto 5%;
     grid-template-rows: 15% auto;
     background-color: $grayBackgroundColor;
+    color: $darkGreyThemeColor;
 }
 
 .list {
@@ -20,7 +21,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: $darkGreyThemeColor;
     font-family: $mainFont;
 
     @media (max-width: $mobileBreakpoint) {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styles from './SingleHabit.module.scss';
 import SingleDay from './SingleDay/SingleDay';
-import Modal from '../../Modals/Modal';
 
 class SingleHabit extends Component {
 
@@ -16,7 +15,7 @@ class SingleHabit extends Component {
     }
 
     render() {
-        const { name, duration, progress, days, completed } = this.props.habitDetails;
+        const { name, duration, progress, days } = this.props.habitDetails;
 
         return (
             <div className={ styles.singleHabit }>
@@ -43,8 +42,6 @@ class SingleHabit extends Component {
                         <div className={ styles.days }>days</div>
                     </div>
                 </div>
-                {/* { completed && <Modal>abc</Modal>} */}
-                {/* <h6 className={ completed ? styles.shown : styles.hidden  }>Completed!</h6> */}
             </div>
         )
     }
