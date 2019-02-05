@@ -39,8 +39,8 @@ class AddHabitForm extends Component {
         return (
             <form onSubmit={this.createHabit}>
                 <h3>Add new habit</h3>
-                <input name="name" ref={this.nameRef} type="text" placeholder="Habit name"/>
-                <input name="duration" ref={this.durationRef} type="number" placeholder="Number of days"/>
+                <input name="name" ref={this.nameRef} type="text" placeholder="Habit name" required/>
+                <input name="duration" ref={this.durationRef} type="number" placeholder="Number of days" required/>
                 <button type="submit">Submit</button>
             </form>
         )

@@ -1,8 +1,42 @@
 @import "../../../scss/constants";
 
-.list {
-    height: 600px;
-    margin-top: 30px;
-    padding: 40px;
+.dashboard {
+    display: grid;
+    grid-template-columns: 5% auto 5%;
+    grid-template-rows: 15% auto;
     background-color: $grayBackgroundColor;
+    color: $darkGreyThemeColor;
+}
+
+.list {
+    min-height: 100%;
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.listHeader {
+    padding-top: 30px;
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: $mainFont;
+
+    @media (max-width: $mobileBreakpoint) {
+        padding-top: 0;
+    }
+}
+
+.newHabit {
+    border: none;
+    background-color: $grayBackgroundColor;
+    font-size: 14px;
+    font-weight: 600;
+    color: $darkGreyThemeColor;
+    cursor: pointer;
+
+    &:hover {
+        font-weight: 750;
+    }
 }

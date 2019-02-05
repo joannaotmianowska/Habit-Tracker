@@ -15,6 +15,7 @@ import {
   prioritySectionHeader,
   prioritySectionText,
 } from './SectionsDetails';
+import Footer from '../Footer/Footer';
 
 class WelcomePage extends Component {
   render() {
@@ -52,6 +53,7 @@ class WelcomePage extends Component {
             textPlacement="right"
           />
         </div>
+        <Footer />
       </div>
     );
   }

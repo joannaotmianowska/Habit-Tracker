@@ -8,13 +8,18 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       habits: {},
-      owner: this.props.userId
+      owner: this.props.userId,
+      isNewHabitFormShown: false,
+      isSuccessModalShown: false
     }
+
+    this.showNewHabitForm = this.showNewHabitForm.bind(this);
+    this.closeNewHabitForm = this.closeNewHabitForm.bind(this);
+    this.closeSuccessModal = this.closeSuccessModal.bind(this);
   }
 
   componentDidMount() {
     const { params } = this.props.match;
-
 
     this.ref = base.syncState(`${params.dashboardId}/habits`, {
       context: this,
@@ -24,6 +29,22 @@ class Dashboard extends Component {
 
   componentWillUnmount() {
     base.removeBinding(this.ref);
+  }
+
+  showNewHabitForm() {
+    this.setState({ isNewHabitFormShown: true });
+  }
+
+  closeNewHabitForm() {
+    this.setState({ isNewHabitFormShown: false });
+  }
+
+  showSuccessModal() {
+    this.setState({ isSuccessModalShown: true });
+  }
+
+  closeSuccessModal() {
+    this.setState({ isSuccessModalShown: false });
   }
 
   addHabit = habit => {
@@ -38,6 +59,12 @@ class Dashboard extends Component {
     this.setState({ habits });
 }
 
+  deleteHabit = habitKey => {
+    const habits = { ...this.state.habits };
+    habits[habitKey] = null;
+    this.setState({ habits });
+  }
+
   toggleDayAsMarked = (habitKey, dayNo) => {
     const habitToUpdate = this.state.habits[habitKey];
 
@@ -49,9 +76,12 @@ class Dashboard extends Component {
           ? habitToUpdate.progress++
           : habitToUpdate.progress--;
 
-        habitToUpdate.progress === habitToUpdate.duration
-          ? habitToUpdate.completed = true
-          : habitToUpdate.completed = false;
+        if (habitToUpdate.progress === habitToUpdate.duration) {
+          habitToUpdate.completed = true;
+          this.showSuccessModal();
+        } else {
+          habitToUpdate.completed = false;
+        }
 
         this.updateHabit(habitKey, habitToUpdate);
       }
@@ -60,16 +90,23 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div>
-        {this.props.userId === this.props.owner && this.props.logged
+      <React.Fragment>
+        { this.props.userId === this.props.owner && this.props.logged
           ? <HabitsList
             addHabit={ this.addHabit }
+            deleteHabit={ this.deleteHabit }
             habits={ this.state.habits }
             toggleDayAsMarked={ this.toggleDayAsMarked }
+            showNewHabitForm={ this.showNewHabitForm }
+            isNewHabitFormShown={ this.state.isNewHabitFormShown }
+            closeNewHabitForm={ this.closeNewHabitForm }
+            updateHabit={ this.updateHabit }
+            isSuccessModalShown = { this.state.isSuccessModalShown }
+            closeSuccessModal = { this.closeSuccessModal }
           />
           : <div>Log in to see the dashboard</div>
-      }
-      </div>
+        }
+      </React.Fragment>
     );
   }
 }
