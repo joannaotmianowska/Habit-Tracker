@@ -1,23 +1,37 @@
 @import "../../scss/constants";
 
 .modalContainer {
-  height: 100vh;
-  width: 100vw;
-  background-color: $transparentBackgroundColor;
-  position: absolute;
-  z-index: 1000;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: $transparentBackgroundColor;
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modalArea {
+    display: grid;
+    grid-template-columns: 5% auto 5%;
     background-color: $white;
     opacity: 1;
-    height: 500px;
-    width: 500px;
-    border-radius: 20px;
+    height: 400px;
+    width: 600px;
+    border-radius: 5px;
     padding: 20px;
     box-shadow: 1px 2px 5px $boxShadowColor;
+}
+
+.modalDetails {
+    grid-column: 2;
+}
+
+.closeIcon {
+    grid-column: 3;
+    color: lighten($darkGreyThemeColor, 20%);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
 }

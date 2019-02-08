@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './SuccessInfo.module.scss';
-import successsImage from '../../../../images/undraw_finish_line.svg';
+import successsImage from '../../../images/undraw_finish_line.svg';
 
 class SuccessInfo extends Component {
 
@@ -19,9 +19,9 @@ class SuccessInfo extends Component {
         return (
             <div className={ styles.successInfo }>
                 <img src={ successsImage } alt='finish line image'/>
-                <p>You have successfully completed new habit</p>
+                <p>You have successfully completed new habit.</p>
                 <p>Congratulations!</p>
-                <button onClick={ this.redirectToNewHabitForm }>Start new habit</button>
+                <button className={ styles.button } onClick={ this.redirectToNewHabitForm }>Start new habit</button>
             </div>
         );
     }

@@ -1,0 +1,25 @@
+@import "../../../scss/constants";
+
+.successInfo {
+    text-align: center;
+    font-family: $mainFont;
+    font-weight: 600;
+    font-size: 18px;
+    color: $darkGreyThemeColor;
+
+    img {
+        height: 200px;
+    }
+}
+
+.button {
+    background-color: $darkGreyThemeColor;
+    padding: 15px 25px;
+    color: $white;
+    font-size: 16px;
+    font-family: $secondFont;
+    border-radius: 5px;
+    box-shadow: $boxShadowColor;
+    margin-top: 20px;
+    cursor: pointer;
+}
