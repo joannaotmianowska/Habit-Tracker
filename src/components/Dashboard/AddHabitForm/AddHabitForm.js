@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './AddHabitForm.module.scss';
 
 class AddHabitForm extends Component {
     constructor(props) {
@@ -36,13 +37,33 @@ class AddHabitForm extends Component {
         this.props.closeNewHabitForm();
         e.currentTarget.reset();
     }
+
     render() {
         return (
-            <form onSubmit={this.createHabit}>
-                <h3>Add new habit</h3>
-                <input name="name" ref={this.nameRef} type="text" placeholder="Habit name" required/>
-                <input name="duration" ref={this.durationRef} type="number" placeholder="Number of days" required/>
-                <button type="submit">Submit</button>
+            <form className={ styles.addHabitForm } onSubmit={ this.createHabit }>
+                <h3 className={ styles.formHeader }>Add new habit</h3>
+                <div className={ styles.question }>
+                    <p>What habit do you what do work on?</p>
+                    <input
+                        name="name"
+                        ref={ this.nameRef }
+                        type="text"
+                        placeholder="e.g. reading every evening"
+                        required
+                    />
+                </div>
+                <div className={ styles.question }>
+                    <p>How many days you want to work on your habit?</p>
+                    <p className={ styles.additionalInfo }>Recommended duration is between 7 to 42 days</p>
+                    <input
+                        name="duration"
+                        ref={ this.durationRef }
+                        type="number"
+                        min="1"
+                        max="42"
+                        required/>
+                </div>
+                <button className={ styles.button } type="submit">Submit</button>
             </form>
         )
     }

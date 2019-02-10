@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './HabitsList.module.scss';
 import SingleHabit from '../SingleHabit/SingleHabit';
 import AddFormHabit from '../AddHabitForm/AddHabitForm';
-import SuccessInfo from '../SingleHabit/SuccessInfo/SuccessInfo';
+import SuccessInfo from '../SuccessInfo/SuccessInfo';
 import Modal from '../../Modals/Modal';
 
 class HabitsList extends Component {
@@ -23,7 +23,7 @@ class HabitsList extends Component {
                         <Modal
                             closeModal={ this.props.closeNewHabitForm }
                         >
-                            <AddFormHabit 
+                            <AddFormHabit
                                 addHabit={ this.props.addHabit }
                                 closeNewHabitForm={ this.props.closeNewHabitForm }
                             />
