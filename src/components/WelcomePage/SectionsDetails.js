@@ -4,9 +4,9 @@ export const entrySectionText = `Habit Tracker helps you learn the most effectiv
   increase self-awareness and set priorities
   so achieving your goals is easier than ever.`;
 
-export const processSectionHeader = 'Use The Proven Process';
+export const processSectionHeader = 'Use a Proven Process';
 
-export const processSectionText = `Habit Loop from "The Power of Habit" bu Charles Duhigg is a process
+export const processSectionText = `Habit Loop from "The Power of Habit" by Charles Duhigg is a process
     of forming a habit. First, there is a cue, a trigger that tells your brain
     to go into automatic mode and which habit to use. Then there is a routine
     which can be physical or mental or emotional. Finally, there is a reward
@@ -16,7 +16,7 @@ export const processSectionText = `Habit Loop from "The Power of Habit" bu Charl
 export const writingSectionHeader = 'Power of Writing Down';
 
 export const writingSectionText = `Journaling daily is a powerful tool which helps you evaluate your experiences
-    and increase self-awareness. Habit Tracker is based on the idea of Buller Journal
+    and increase self-awareness. Habit Tracker is based on the idea of Bullet Journal
     by Ridel Carroll. It is descripted as a mindfullness practice disguised
     as productivity system.`;
 
