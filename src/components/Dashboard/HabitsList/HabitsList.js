@@ -15,7 +15,7 @@ class HabitsList extends Component {
                     <button
                         className={ styles.newHabit }
                         onClick={ this.props.showNewHabitForm }>
-                        Add new habit
+                        Add a new habit
                     </button>
                 </div>
                 <div className={ styles.list }>
