@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './HabitsList.module.scss';
 import SingleHabit from '../SingleHabit/SingleHabit';
-import AddFormHabit from '../AddHabitForm/AddHabitForm';
+import AddHabitForm from '../AddHabitForm/AddHabitForm';
 import SuccessInfo from '../SuccessInfo/SuccessInfo';
 import Modal from '../../Modals/Modal';
 
@@ -23,7 +23,7 @@ class HabitsList extends Component {
                         <Modal
                             closeModal={ this.props.closeNewHabitForm }
                         >
-                            <AddFormHabit
+                            <AddHabitForm
                                 addHabit={ this.props.addHabit }
                                 closeNewHabitForm={ this.props.closeNewHabitForm }
                             />
@@ -46,6 +46,9 @@ class HabitsList extends Component {
                                 toggleDayAsMarked={ this.props.toggleDayAsMarked }
                                 deleteHabit={ this.props.deleteHabit }
                                 updateHabit={ this.props.updateHabit }
+                                isEditHabitFormShown = { this.props.isEditHabitFormShown }
+                                showEditHabitForm = { this.props.showEditHabitForm }
+                                closeEditHabitForm = { this.props.closeEditHabitForm }
                             />
                         ))
                     }

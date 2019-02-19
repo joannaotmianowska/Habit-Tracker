@@ -10,12 +10,15 @@ class Dashboard extends Component {
       habits: {},
       owner: this.props.userId,
       isNewHabitFormShown: false,
-      isSuccessModalShown: false
+      isSuccessModalShown: false,
+      isEditHabitFormShown: false
     }
 
     this.showNewHabitForm = this.showNewHabitForm.bind(this);
     this.closeNewHabitForm = this.closeNewHabitForm.bind(this);
     this.closeSuccessModal = this.closeSuccessModal.bind(this);
+    this.showEditHabitForm = this.showEditHabitForm.bind(this)
+    this.closeEditHabitForm = this.closeEditHabitForm.bind(this);
   }
 
   componentDidMount() {
@@ -47,6 +50,14 @@ class Dashboard extends Component {
     this.setState({ isSuccessModalShown: false });
   }
 
+  showEditHabitForm() {
+    this.setState({ isEditHabitFormShown: true });
+  }
+
+  closeEditHabitForm() {
+    this.setState({ isEditHabitFormShown: false });
+  }
+
   addHabit = habit => {
     const habits = { ...this.state.habits };
     habits[`habit${Date.now()}`] = habit;
@@ -57,7 +68,7 @@ class Dashboard extends Component {
     const habits = { ...this.state.habits };
     habits[habitKey] = updatedHabit;
     this.setState({ habits });
-}
+  }
 
   deleteHabit = habitKey => {
     const habits = { ...this.state.habits };
@@ -93,16 +104,20 @@ class Dashboard extends Component {
       <React.Fragment>
         { this.props.userId === this.props.owner && this.props.logged
           ? <HabitsList
-            addHabit={ this.addHabit }
-            deleteHabit={ this.deleteHabit }
-            habits={ this.state.habits }
-            toggleDayAsMarked={ this.toggleDayAsMarked }
-            showNewHabitForm={ this.showNewHabitForm }
-            isNewHabitFormShown={ this.state.isNewHabitFormShown }
-            closeNewHabitForm={ this.closeNewHabitForm }
-            updateHabit={ this.updateHabit }
-            isSuccessModalShown = { this.state.isSuccessModalShown }
-            closeSuccessModal = { this.closeSuccessModal }
+              addHabit={ this.addHabit }
+              deleteHabit={ this.deleteHabit }
+              updateHabit={ this.updateHabit }
+              habits={ this.state.habits }
+              toggleDayAsMarked={ this.toggleDayAsMarked }
+              showNewHabitForm={ this.showNewHabitForm }
+              isNewHabitFormShown={ this.state.isNewHabitFormShown }
+              closeNewHabitForm={ this.closeNewHabitForm }
+              updateHabit={ this.updateHabit }
+              isSuccessModalShown = { this.state.isSuccessModalShown }
+              closeSuccessModal = { this.closeSuccessModal }
+              isEditHabitFormShown = { this.state.isEditHabitFormShown }
+              showEditHabitForm = { this.showEditHabitForm }
+              closeEditHabitForm = { this.closeEditHabitForm }
           />
           : <div>Log in to see the dashboard</div>
         }
