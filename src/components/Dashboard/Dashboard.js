@@ -58,6 +58,16 @@ class Dashboard extends Component {
     this.setState({ isEditHabitFormShown: false });
   }
 
+  daysArrayForHabit(days) {
+    let array = [];
+
+    for(let i = 1; i <= days; i++) {
+        array.push({ dayNo: i, marked: false });
+    }
+
+    return array;
+  }
+
   addHabit = habit => {
     const habits = { ...this.state.habits };
     habits[`habit${Date.now()}`] = habit;
@@ -108,6 +118,7 @@ class Dashboard extends Component {
               deleteHabit={ this.deleteHabit }
               updateHabit={ this.updateHabit }
               habits={ this.state.habits }
+              daysArrayForHabit={ this.daysArrayForHabit }
               toggleDayAsMarked={ this.toggleDayAsMarked }
               showNewHabitForm={ this.showNewHabitForm }
               isNewHabitFormShown={ this.state.isNewHabitFormShown }

@@ -25,6 +25,7 @@ class HabitsList extends Component {
                         >
                             <AddHabitForm
                                 addHabit={ this.props.addHabit }
+                                daysArrayForHabit={ this.props.daysArrayForHabit }
                                 closeNewHabitForm={ this.props.closeNewHabitForm }
                             />
                         </Modal> }
@@ -42,6 +43,7 @@ class HabitsList extends Component {
                             <SingleHabit
                                 key={ key }
                                 habitDetails={ this.props.habits[key] }
+                                daysArrayForHabit={ this.props.daysArrayForHabit }
                                 index={ key }
                                 toggleDayAsMarked={ this.props.toggleDayAsMarked }
                                 deleteHabit={ this.props.deleteHabit }

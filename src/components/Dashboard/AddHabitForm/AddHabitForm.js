@@ -10,16 +10,6 @@ class AddHabitForm extends Component {
         this.daysArrayForHabit = this.daysArrayForHabit.bind(this);
     }
 
-    daysArrayForHabit(days) {
-        let array = [];
-
-        for(let i = 1; i <= days; i++) {
-            array.push({ dayNo: i, marked: false });
-        }
-
-        return array;
-    }
-
     createHabit(e) {
         e.preventDefault();
 
@@ -30,7 +20,7 @@ class AddHabitForm extends Component {
             duration,
             completed: false,
             progress: 0,
-            days: this.daysArrayForHabit(duration)
+            days: this.props.daysArrayForHabit(duration)
         }
 
         this.props.addHabit(habit);

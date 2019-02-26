@@ -18,7 +18,6 @@ class SingleHabit extends Component {
     }
 
     edit() {
-        console.log(this.props)
         this.props.showEditHabitForm();
     }
 
@@ -30,6 +29,9 @@ class SingleHabit extends Component {
                 { this.props.isEditHabitFormShown &&
                     <Modal closeModal={ this.props.closeEditHabitForm }>
                         <EditHabitForm
+                            updateHabit={ this.props.updateHabit }
+                            habitKey={ this.props.index }
+                            daysArrayForHabit={ this.props.daysArrayForHabit }
                             habitDetails = { this.props.habitDetails }
                             showEditHabitForm={ this.props.showEditHabitForm }
                             closeEditHabitForm={ this.props.closeEditHabitForm }
