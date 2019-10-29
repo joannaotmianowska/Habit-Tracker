@@ -4,6 +4,8 @@ import successsImage from '../../../images/undraw_finish_line.svg';
 
 class SuccessInfo extends Component {
 
+    // to do - use NewHabitButton component here
+
     constructor(props) {
         super(props);
 

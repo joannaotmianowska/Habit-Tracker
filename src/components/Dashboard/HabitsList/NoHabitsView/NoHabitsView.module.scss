@@ -1,0 +1,17 @@
+.noHabitsView {
+    display: grid;
+    grid-template-columns: 20% auto 20%;
+}
+
+.infoContainer {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+        margin-top: 30px; // to fix - work on margins with grid/flex
+        height: 400px;
+    }
+}

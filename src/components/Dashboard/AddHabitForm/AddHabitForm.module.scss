@@ -59,4 +59,9 @@
     cursor: pointer;
     width: 30%;
     align-self: center;
+
+    &:hover {
+        background-color: $grayBackgroundColor;
+        color: $darkGreyThemeColor;
+    }
 }
