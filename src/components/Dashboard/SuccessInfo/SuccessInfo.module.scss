@@ -22,4 +22,9 @@
     box-shadow: 1px 1px 1px $boxShadowColor;
     margin-top: 20px;
     cursor: pointer;
+
+    &:hover {
+        background-color: $grayBackgroundColor;
+        color: $darkGreyThemeColor;
+    }
 }
