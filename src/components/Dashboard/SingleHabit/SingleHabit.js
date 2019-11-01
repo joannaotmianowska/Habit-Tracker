@@ -25,7 +25,7 @@ class SingleHabit extends Component {
                 </div>
                 <div className={ styles.progressArea }>
                     <div className={ styles.daysArea }>
-                        { days.map(el =>
+                        { days !== 0 && days.map(el =>
                             <SingleDay
                                 key={ el.dayNo }
                                 habitKey={ this.props.index }
