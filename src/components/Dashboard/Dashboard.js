@@ -104,7 +104,7 @@ class Dashboard extends Component {
             isSuccessModalShown = { this.state.isSuccessModalShown }
             closeSuccessModal = { this.closeSuccessModal }
           />
-          : <div>Log in to see the dashboard</div>
+          : <div>Loading habits list...</div>
         }
       </React.Fragment>
     );

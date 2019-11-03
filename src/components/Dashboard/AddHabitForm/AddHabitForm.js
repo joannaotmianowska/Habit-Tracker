@@ -6,6 +6,7 @@ class AddHabitForm extends Component {
         super(props);
         this.nameRef = React.createRef();
         this.durationRef = React.createRef();
+        this.startingDateRef = React.createRef();
         this.createHabit = this.createHabit.bind(this);
         this.daysArrayForHabit = this.daysArrayForHabit.bind(this);
     }
@@ -30,7 +31,8 @@ class AddHabitForm extends Component {
             duration,
             completed: false,
             progress: 0,
-            days: this.daysArrayForHabit(duration)
+            days: this.daysArrayForHabit(duration),
+            startingDate: this.startingDateRef.current.value || new Date()
         }
 
         this.props.addHabit(habit);
@@ -61,6 +63,14 @@ class AddHabitForm extends Component {
                         type="number"
                         min="1"
                         max="42"
+                        required/>
+                </div>
+                <div className={ styles.question }>
+                    <p>When do you start working on chosen habit?</p>
+                    <input
+                        name="startingDate"
+                        ref={ this.startingDateRef }
+                        type="date"
                         required/>
                 </div>
                 <button className={ styles.button } type="submit">Submit</button>

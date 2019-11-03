@@ -15,7 +15,7 @@ class SingleHabit extends Component {
     }
 
     render() {
-        const { name, duration, progress, days } = this.props.habitDetails;
+        const { name, duration, progress, days, startingDate } = this.props.habitDetails;
 
         return (
             <div className={ styles.singleHabit }>
@@ -33,6 +33,9 @@ class SingleHabit extends Component {
                                 { ...el }
                             />
                         )}
+                    </div>
+                    <div>
+                        { startingDate && <div>Starting date: { startingDate }</div>}
                     </div>
                     <div className={ styles.progress }>
                         <div>
