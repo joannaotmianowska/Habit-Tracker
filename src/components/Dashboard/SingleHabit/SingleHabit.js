@@ -15,13 +15,21 @@ class SingleHabit extends Component {
     }
 
     render() {
-        const { name, duration, progress, days } = this.props.habitDetails;
+        const { name, duration, progress, days, startingDate } = this.props.habitDetails;
 
         return (
             <div className={ styles.singleHabit }>
                 <div className={ styles.habitHeader }>
-                    <h5>{ name }</h5>
-                    <button onClick={ this.delete }>delete</button>
+                    <div className={ styles.mainInfo }>
+                        <h5>{ name }</h5>
+                        <button onClick={ this.delete }>delete</button>
+                    </div>
+                    { startingDate && <div className={ styles.startingDate }>
+                        <h5>
+                            <span className={ styles.startLabel }>Starting date: </span>
+                            { startingDate }
+                        </h5>
+                    </div> }
                 </div>
                 <div className={ styles.progressArea }>
                     <div className={ styles.daysArea }>
@@ -33,6 +41,9 @@ class SingleHabit extends Component {
                                 { ...el }
                             />
                         )}
+                    </div>
+                    <div>
+                        { startingDate && <div></div>}
                     </div>
                     <div className={ styles.progress }>
                         <div>
