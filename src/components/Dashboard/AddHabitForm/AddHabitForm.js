@@ -32,7 +32,7 @@ class AddHabitForm extends Component {
             completed: false,
             progress: 0,
             days: this.daysArrayForHabit(duration),
-            startingDate: this.startingDateRef.current.value || new Date()
+            startingDate: this.startingDateRef.current.value
         }
 
         this.props.addHabit(habit);

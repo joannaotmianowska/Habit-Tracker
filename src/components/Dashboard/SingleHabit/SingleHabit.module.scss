@@ -8,26 +8,32 @@
 }
 
 .habitHeader {
-    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
     background-color: $darkGreyThemeColor;
+    padding: 15px 20px;
+    border-radius: 10px 10px 0 0;
+    color: $white;
+    font-family: $mainFont;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.mainInfo {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: $white;
-    border-radius: 10px 10px 0 0;
 
     h5 {
         margin: 0;
         font-size: 14px;
         font-weight: 400;
-        font-family: $mainFont;
     }
 
     button {
         border: none;
         color: $white;
         background-color: $darkGreyThemeColor;
-        font-family: $mainFont;
         font-size: 10px;
         cursor: pointer;
         padding-right: 0;
@@ -35,6 +41,20 @@
         &:hover {
             font-size: 11px;
         }
+    }
+}
+
+.startingDate {
+    margin-top: 5px;
+
+    h5 {
+        margin: 0;
+        font-weight: 200;
+        font-size: 12px;
+    }
+
+    .startLabel {
+        font-weight: 400;
     }
 }
 
